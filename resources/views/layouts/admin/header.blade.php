@@ -273,7 +273,7 @@
                                         <span class="profile-ava">
                                         <img alt="" src="{{ asset('template/admin/img/avatar1_small.jpg')}}">
                                         </span>
-                                        <span class="username">Jenifer Smith</span>
+                                        <span class="username">{{Auth::user()->name}}</span>
                                         <b class="caret"></b>
                                     </a>
                         <ul class="dropdown-menu extended logout">
@@ -290,8 +290,9 @@
                           <li>
                             <a href="#"><i class="icon_chat_alt"></i> Chats</a>
                           </li>
-                          <li>
-                          <a href="{{ route('logout') }}"><i class="icon_key_alt"></i> Log Out</a>
+                          <li>  
+                          <a href="{{ route('logout') }}" onclick="event.preventDefault();
+                          document.getElementById('logout-form').submit();" ><i class="icon_key_alt"></i> Log Out</a>
                           </li>
                           <li>
                             <a href="documentation.html"><i class="icon_key_alt"></i> Documentation</a>
@@ -305,5 +306,8 @@
                     </ul>
                     <!-- notificatoin dropdown end-->
                   </div>
+                  <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                      @csrf
+                  </form>
                 </header>
                 <!--header end-->
