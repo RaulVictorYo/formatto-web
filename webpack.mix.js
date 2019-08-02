@@ -1,5 +1,18 @@
 const mix = require('laravel-mix');
+const electron = require('electron');
+const url = require('url');
+const path = require('path');
 
+const {app, BrowserWindow} = electron;
+
+let mainWindow;
+
+
+app.on('ready', function(){
+   mainWindow = new BrowserWindow({});
+
+   mainWindow.loadURL('http://localhost:8000');
+});
 /*
  |--------------------------------------------------------------------------
  | Mix Asset Management
@@ -11,5 +24,7 @@ const mix = require('laravel-mix');
  |
  */
 
-mix.js('resources/js/app.js', 'public/js')
-    .sass('resources/sass/app.scss', 'public/css');
+/*mix.react('resources/js/app.js', 'public/js')
+   .sass('resources/sass/app.scss', 'public/css');*/
+
+

@@ -1,4 +1,5 @@
 @include('layouts.admin.header')
 @include('layouts.admin.sidebar')
+@yield('FormeHeader')
 @yield('content')
 @include('layouts.admin.footer')
